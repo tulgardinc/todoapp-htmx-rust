@@ -1,0 +1,12 @@
+[package]
+name = "htmx-todo"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+axum = "0.7.5"
+maud = { version = "0.26.0", features = ["axum"] }
+tokio = { version = "1.38.0", features = ["full"] }
+tower = "0.4.13"
+tower-http = { version = "0.5.2", features = ["fs", "trace"] }
+tracing-subscriber = { version = "0.3.18", features = ["env-filter"] }
