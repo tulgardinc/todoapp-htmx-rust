@@ -14,18 +14,11 @@
         <div class="w-2/5 min-h-[400px] rounded-lg shadow-xl box-border p-10">
             <h1 class="text-6xl font-bold">Todos</h1>
             <hr class="border-t-2 my-8">
-            <div class="w-full flex items-center gap-3 box-border py-2 px-3 rounded-lg hover:bg-gray-100 hover:cursor-pointer"> 
-                <i class="text-xl fa-regular fa-circle"></i>
-                <h1 class="text-3xl">Todo Item 1</h1>
-            </div>
-            <div class="w-full flex items-center gap-3 box-border py-2 px-3 rounded-lg hover:bg-gray-100 hover:cursor-pointer"> 
-                <i class="text-xl fa-regular fa-circle-check"></i>
-                <h1 class="text-3xl">Todo Item 2</h1>
-            </div>
+            <div id="todos-container" hx-get="/api/todos" hx-trigger="load" hx-swap="innerHTML">Loading...</div>
             <hr class="border-t-2 my-8">
-            <form class="flex gap-10 justify-between items-center"> 
-                <input class="border-b-2 text-xl box-border px-3 py-2 flex-grow" placeholder="Todo" type="text">
-                <input type="button" class="bg-blue-600 text-lg font-bold hover:bg-blue-800 hover:cursor-pointer px-3 py-3 rounded-lg" value="Add Todo">
+            <form hx-target="#todos-container" hx-swap="beforeend" hx-post="/api/todos" class="flex gap-10 justify-between items-center"> 
+                <input name="name" autocomplete="off" class="border-b-2 text-3xl box-border px-3 py-2 flex-grow" placeholder="New todo" type="text">
+                <input type="submit" class="bg-blue-600 text-lg text-white font-bold hover:bg-blue-800 hover:cursor-pointer px-3 py-3 rounded-lg" value="Add Todo">
             </form>
         </div>
     </div>
